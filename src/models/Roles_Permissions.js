@@ -1,4 +1,3 @@
-const { FOREIGNKEYS } = require("sequelize/lib/query-types");
 const sequelize = require("../utils/DB/config");
 const { DataTypes } = require("sequelize");
 const Roles_Permissions = sequelize.define(
@@ -18,7 +17,7 @@ const Roles_Permissions = sequelize.define(
             foreignKey: 'id',
         }
     },
-    PermissionStatusId: {
+    permissionId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         module:{

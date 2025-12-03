@@ -14,10 +14,6 @@ const Permissions = sequelize.define(
         allowNull: false,
         unique: true,
         
-    },
-    description: {
-        type: DataTypes.STRING,
-        allowNull: true,    
     }
     ,
     createdAt: {
