@@ -10,4 +10,6 @@ insert into `apostrophe-test`.roles_permissions (id,roleId,permissionId,createdA
 insert into `apostrophe-test`.roles_permissions (id,roleId,permissionId,createdAt,updatedAt)values(10,2,8,now(),now());
 insert into `apostrophe-test`.roles_permissions (id,roleId,permissionId,createdAt,updatedAt)values(11,2,9,now(),now());
 
+insert into `apostrophe-test`.roles_permissions (id,roleId,permissionId,createdAt,updatedAt)values(12,1,10,now(),now());
+
 insert into `apostrophe-test`.users_roles (id,userId,roleId,createdAt,updatedAt)values(1,'9c693fd5-57fb-4468-b7ad-4a7adf7b1e90',1,now(),now());

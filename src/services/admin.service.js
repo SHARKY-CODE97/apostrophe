@@ -74,9 +74,6 @@ class AdminService {
       throw error;
     }
   }
-
-
-
 }
 
 module.exports = new AdminService();

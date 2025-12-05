@@ -3,7 +3,7 @@ const userService = require("../services/user.service");
 exports.getProfileInfo = (req, res, next) => {
   try {
     userService
-      .getProfileInfo("b1985d02-0a9c-430a-8326-502065d1759c")
+      .getProfileInfo(req.userId)
       .then((result) => {
         res.status(200).json({ result });
       });
@@ -15,7 +15,7 @@ exports.getProfileInfo = (req, res, next) => {
 exports.deleteAccount = async (req, res, next) => {
   try {
     return await userService
-      .deleteAccount("b1985d02-0a9c-430a-8326-502065d1759c")
+      .deleteAccount(req.userId)
       .then((result) => {
         res.status(201).json({ result });
       });

@@ -2,7 +2,7 @@ const { Users, Roles ,Permissions, Roles_Permissions, Users_Roles} = require("..
 
  function isAuthorized(permission_const){
 return async (req,res,next)=>{
-await Users.findByPk('2b5f5ec6-fd57-488d-af1c-4f3c1f076048',{
+await Users.findByPk(req.userId,{
     
     include:[{
        

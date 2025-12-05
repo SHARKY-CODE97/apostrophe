@@ -42,12 +42,6 @@ const Users = sequelize.define(
         allowNull:true,    
     },
 
-    isAdmin: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false,
-    },
-
     status: {
       type: DataTypes.ENUM("active", "inactive", "pending"),
       allowNull: false,

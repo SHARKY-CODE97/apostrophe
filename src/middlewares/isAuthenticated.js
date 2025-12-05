@@ -4,10 +4,10 @@ exports.isAuthenticated=(req,res,next)=>{
 
     try{
     var token= req.get('Authorization');
+    console.log(token)
      var decodedToken;
-    token=toString(token);
     token=token.split(' ')[1];
-
+console.log("token",token)
     if(!token){
         const error=new Error('token is mandatory')
         error.status=401;

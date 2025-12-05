@@ -23,6 +23,7 @@ exports.signUp = async (req, res, next) => {
 exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
+    
     const { user, token } = await authService.login(email, password);
     res.status(200).json({ user, token });
   } 

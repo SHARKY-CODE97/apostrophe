@@ -5,9 +5,11 @@ exports.permissionList = {
   getAllPermissions: 'getAllPermissions',
   getAllRoles: 'getAllRoles',
   addNewRole:'addNewRole',
+   updateRole: 'updateRole',
   getProfileInfo: 'getProfileInfo',
   deleteAccount: 'deleteAccount',
   updateAccount: 'updateAccount',
+ 
 };
 
 exports.role={

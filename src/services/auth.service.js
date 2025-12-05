@@ -32,9 +32,9 @@ class Authentication {
         error.status = 401;
         throw error;
       }
-
+console.log(password,user.password)
       const isMatch = await bcrypt.compare(password, user.password);
-
+      console.log(isMatch)
       if (!isMatch) {
         const error = new Error("Invalid credentials");
         error.status = 401;

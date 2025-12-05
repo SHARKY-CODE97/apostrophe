@@ -91,3 +91,27 @@ exports.addNewRole=(req,res,next)=>{
 next(error)
   }
   }
+
+
+  exports.updateRole=(req,res,next)=>{
+
+  try{
+    const id=req.body.id
+      const roleName=req.body.roleName
+      const permissions=req.body.permissions
+      let roleInfo={
+        id:id,
+        roleName:roleName,
+        permissions:permissions
+      }
+      adminService.updateRole(roleInfo).then(()=>{
+        res.status(201).json({message:"success"})
+      })
+    }
+    catch(error){
+next(error)
+  }
+
+
+  }
+  
