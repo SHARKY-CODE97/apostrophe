@@ -7,6 +7,7 @@ const app=express()
 const {permissionsSeeds}=require('./utils/DB/seeders')
 const { isAuthorized } = require("./middlewares/isAuthorized")
 const cors=require('cors')
+const port=process.env.PORT
 require("./models/index")
 
 var corsWhitelist =[
@@ -62,7 +63,7 @@ app.use((error,req,res,next)=>{
 
 sequelize.sync({alter:false}).then(()=>{
     console.log("DB connected")
-    app.listen(3000)
+    app.listen(port)
     
     permissionsSeeds()
 })
