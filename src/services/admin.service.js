@@ -1,3 +1,4 @@
+const { where } = require("sequelize");
 const { Users, Roles, Users_Roles, Permissions } = require("../models");
 class AdminService {
   async getAllUsers() {
@@ -57,11 +58,10 @@ class AdminService {
     }
   }
 
-   async updateRole(RoleData) {
+  async updateRole(RoleData) {
     const roleInfo = {
       id: RoleData.id,
       roleName: RoleData.roleName,
-
     };
     const relatedPermission = [...RoleData.permissions];
     try {
@@ -74,6 +74,8 @@ class AdminService {
       throw error;
     }
   }
+
+ 
 }
 
 module.exports = new AdminService();

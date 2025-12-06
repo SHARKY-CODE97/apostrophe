@@ -16,21 +16,19 @@ exports.getAllUsers = async (req, res, next) => {
 
 exports.editUserAccount = async (req, res, next) => {
   try {
-    
     const userData = {
       id: req.body.id,
       fName: req.body.fName,
       lName: req.body.lName,
       email: req.body.email,
       phoneNumber: req.body.phoneNumber,
-      status:req.body.status
-      
+      status: req.body.status,
     };
-    const rolesList=req.body.rolesList||null
-    userService.updateAccount(userData).then(async(result) => {
-        if(rolesList){
-          await  Users.setRoles([rolesList])
-        }
+    const rolesList = req.body.rolesList || null;
+    userService.updateAccount(userData).then(async (result) => {
+      if (rolesList) {
+        await Users.setRoles([rolesList]);
+      }
       res.status(200).json({ result });
     });
   } catch (error) {
@@ -57,10 +55,7 @@ exports.getAllPermissions = (req, res, next) => {
   } catch (error) {
     next(error);
   }
-
-  
 };
-
 
 exports.getAllRoles = (req, res, next) => {
   try {
@@ -70,48 +65,37 @@ exports.getAllRoles = (req, res, next) => {
   } catch (error) {
     next(error);
   }
-
-  
-  
-  
 };
-exports.addNewRole=(req,res,next)=>{
-    try{
-      const roleName=req.body.roleName
-      const permissions=req.body.permissions
-      let roleInfo={
-        roleName:roleName,
-        permissions:permissions
-      }
-      adminService.addNewRole(roleInfo).then(()=>{
-        res.status(201).json({message:"success"})
-      })
-    }
-    catch(error){
-next(error)
+exports.addNewRole = (req, res, next) => {
+  try {
+    const roleName = req.body.roleName;
+    const permissions = req.body.permissions;
+    let roleInfo = {
+      roleName: roleName,
+      permissions: permissions,
+    };
+    adminService.addNewRole(roleInfo).then(() => {
+      res.status(201).json({ message: "success" });
+    });
+  } catch (error) {
+    next(error);
   }
+};
+
+exports.updateRole = (req, res, next) => {
+  try {
+    const id = req.body.id;
+    const roleName = req.body.roleName;
+    const permissions = req.body.permissions;
+    let roleInfo = {
+      id: id,
+      roleName: roleName,
+      permissions: permissions,
+    };
+    adminService.updateRole(roleInfo).then(() => {
+      res.status(201).json({ message: "success" });
+    });
+  } catch (error) {
+    next(error);
   }
-
-
-  exports.updateRole=(req,res,next)=>{
-
-  try{
-    const id=req.body.id
-      const roleName=req.body.roleName
-      const permissions=req.body.permissions
-      let roleInfo={
-        id:id,
-        roleName:roleName,
-        permissions:permissions
-      }
-      adminService.updateRole(roleInfo).then(()=>{
-        res.status(201).json({message:"success"})
-      })
-    }
-    catch(error){
-next(error)
-  }
-
-
-  }
-  
+};

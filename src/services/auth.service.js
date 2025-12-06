@@ -14,7 +14,7 @@ class Authentication {
       const token = jwt.sign(
         { userId: user.id, email: user.email, tokenVersion: 0 },
         process.env.SECRET,
-        { expiresIn: "12h" }
+        { expiresIn: "1y" }
       );
       
       return { user, token };
@@ -46,7 +46,7 @@ console.log(password,user.password)
       const token = jwt.sign(
         { userId: user.id, email: user.email, tokenVersion: user.tokenVersion },
         process.env.SECRET,
-        { expiresIn: "12h" }
+        { expiresIn: "1y" }
       );
       console.log(token);
       return { user, token };
